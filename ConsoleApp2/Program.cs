@@ -21,12 +21,14 @@ class Program {
     public static async void PlayVideo()
     {
         string path = Path.Combine(Path.GetDirectoryName(videoPath), "frames");
+        //Checks if frames have already been created
         if (!Directory.Exists(path))
         {
             await Task.Run(() => videoCreator.CreateVideoAsync(videoPath));
         }
         
         string[] images = Directory.GetFiles(path);
+        //Makes sure all the frames are in correct order.
         Array.Sort(images);
         int delay = 1000 / videoCreator.fps;
         foreach (string s in images)
