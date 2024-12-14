@@ -30,7 +30,7 @@ internal class VideoToImage
         List<Task> tasks = new();
         for (double currentTime = 0; currentTime < totalSeconds; currentTime += 1.0 / fps)
         {
-            double frameTime = currentTime; // Accurate timestamp for each frame
+            double frameTime = currentTime;
             await semaphore.WaitAsync();
             tasks.Add(Task.Run(() =>
             {
