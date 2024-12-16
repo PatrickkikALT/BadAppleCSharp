@@ -35,8 +35,5 @@ internal sealed class Generator
             outputHeight);
         
         return art;
-
-
-
     }
 }
